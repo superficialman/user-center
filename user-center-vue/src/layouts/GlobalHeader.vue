@@ -15,15 +15,6 @@
           <el-menu-item index="/article">
             <el-icon><List /></el-icon>文章
           </el-menu-item>
-          <el-menu-item index="/article">
-            <el-icon><List /></el-icon>文章
-          </el-menu-item>
-          <el-menu-item index="/article">
-            <el-icon><List /></el-icon>文章
-          </el-menu-item>
-          <el-menu-item index="/article">
-            <el-icon><List /></el-icon>文章
-          </el-menu-item>
           <!--          仅管理员可见-->
           <el-sub-menu v-if="loginUser.userRole === 1" index="manage">
             <template #title><el-icon><Tools/></el-icon>管理中心</template>
