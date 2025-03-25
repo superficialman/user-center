@@ -1,0 +1,16 @@
+# SpringBoot 忽略
+backend/target/
+backend/.settings/
+backend/.project
+backend/.classpath
+
+# Vue 忽略
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+
+# 通用忽略
+.DS_Store
+.idea/
+*.log

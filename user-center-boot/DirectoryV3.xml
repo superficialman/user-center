@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <trees>
+     <tree path="/src/main/java/com/bytebreeze/usercenterboot/common" title="全局通用返回" extension="" presentableText=""
+           tooltipTitle="" icon="" textColor="" backgroundColor=""/>
+     <tree path="/src/main/java/com/bytebreeze/usercenterboot/constant" title="常量"/>
+    <tree path="/src/main/java/com/bytebreeze/usercenterboot/common/exception" title="自定义异常"/>
+     <tree path="/src/main/java/com/bytebreeze/usercenterboot/common/ErrorCode.java" title="自定义错误码"/>
+     <tree path="/src/main/java/com/bytebreeze/usercenterboot/common/BaseResponse.java" title="通用返回类"/>
+     <tree path="/src/main/java/com/bytebreeze/usercenterboot/entity/request" title="请求参数封装" extension=""
+           presentableText="" tooltipTitle="" icon="" textColor="" backgroundColor=""/>
+     <tree path="/src/main/java/com/bytebreeze/usercenterboot/exception/GlobalExceptionHandle.java"
+           title="全局异常处理"/>
+    <tree path="/src/main/java/com/bytebreeze/usercenterboot/exception/BusinessException.java" title="异常类"/>
+    <tree path="/src/main/java/com/bytebreeze/usercenterboot/exception" title="自定义异常"/>
+</trees>
