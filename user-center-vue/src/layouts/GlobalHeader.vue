@@ -10,71 +10,84 @@
       <el-main class="el-main">
         <el-menu router :default-active="route.path" class="el-menu" mode="horizontal">
           <el-menu-item index="/">
-            <el-icon>
-              <HomeFilled/>
-            </el-icon>
-            首页
+            <el-icon><HomeFilled/></el-icon>首页
           </el-menu-item>
-          <el-menu-item index="/manage">
-            <el-icon>
-              <Tools/>
-            </el-icon>
-            用户管理
+          <el-menu-item index="/article">
+            <el-icon><List /></el-icon>文章
           </el-menu-item>
+          <el-menu-item index="/article">
+            <el-icon><List /></el-icon>文章
+          </el-menu-item>
+          <el-menu-item index="/article">
+            <el-icon><List /></el-icon>文章
+          </el-menu-item>
+          <!--          仅管理员可见-->
+          <el-sub-menu v-if="loginUser.userRole === 1" index="manage">
+            <template #title><el-icon><Tools/></el-icon>管理中心</template>
+            <el-menu-item index="/user-manage">
+              <el-icon><UserFilled/></el-icon>用户管理
+            </el-menu-item>
+            <el-menu-item index="/article-manage">
+              <el-icon><Menu/></el-icon>文章管理
+            </el-menu-item>
+          </el-sub-menu>
+
+          <div v-else></div>
+
         </el-menu>
       </el-main>
 
       <!-- 顶部栏右侧登录用户头像和昵称 -->
       <el-aside width="300px" class="el-aside">
-<!--        <div v-if="loading" class="skeleton">-->
-<!--          &lt;!&ndash; 骨架屏内容 &ndash;&gt;-->
-<!--          <el-skeleton :rows="1" animated/>-->
-<!--        </div>-->
-<!--        <div v-else>-->
-          <div v-if="loginUser.id" class="currentUser">
-            <el-avatar shape="circle" id="el-avatar" :src="loginUser.avatar || defaultAvatar"
-                       style="height: 40px; width: 40px; border-radius: 50%;"
-                       alt="我的头像"></el-avatar>
-            <h1 style="margin-left: 20px; margin-right: 5px;">{{
-                loginUser.username || "无名小可爱"
-              }}</h1>
+        <!--        <div v-if="loading" class="skeleton">-->
+        <!--          &lt;!&ndash; 骨架屏内容 &ndash;&gt;-->
+        <!--          <el-skeleton :rows="1" animated/>-->
+        <!--        </div>-->
+        <!--        <div v-else>-->
+        <div v-if="loginUser.id" class="currentUser">
+          <el-avatar shape="circle" id="el-avatar" :src="loginUser.avatar || defaultAvatar"
+                     style="height: 40px; width: 40px; border-radius: 50%;"
+                     alt="我的头像"></el-avatar>
+          <h1 style="margin-left: 20px; margin-right: 5px;">{{
+              loginUser.username || "无名小可爱"
+            }}</h1>
 
-            <el-popover :width="300" trigger="click"
-                        popper-style="box-shadow: rgb(14 18 22 / 35%) 0px 10px 38px -10px, rgb(14 18 22 / 20%) 0px 10px 20px -15px; padding: 20px; background-color: #ebf2ff">
-              <template #reference>
-                <el-button link>
-                  <el-icon>
-                    <ArrowDownBold/>
-                  </el-icon>
-                </el-button>
-              </template>
-              <template #default>
-                <div style="display: flex; flex-direction: column; align-items: center;">
+          <el-popover :width="300" trigger="click"
+                      popper-style="box-shadow: rgb(14 18 22 / 35%) 0px 10px 38px -10px, rgb(14 18 22 / 20%) 0px 10px 20px -15px; padding: 20px; background-color: #ebf2ff">
+            <template #reference>
+              <el-button link>
+                <el-icon>
+                  <ArrowDownBold/>
+                </el-icon>
+              </el-button>
+            </template>
+            <template #default>
+              <div style="display: flex; flex-direction: column; align-items: center;">
 
-                  <el-image :src="loginUser.avatar || defaultAvatar" preview-teleported
-                            :preview-src-list="[loginUser.avatar || defaultAvatar]" fit="cover"
-                            style="height: 80px; width: 80px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 5px; cursor: pointer;">
-                  </el-image>
+                <el-image :src="loginUser.avatar || defaultAvatar" preview-teleported
+                          :preview-src-list="[loginUser.avatar || defaultAvatar]" fit="cover"
+                          style="height: 80px; width: 80px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 5px; cursor: pointer;">
+                </el-image>
 
 
-                  <h2 style="font-size: 18px; font-weight: bold; margin-top: 15px; margin-bottom: 80px;
+                <h2 style="font-size: 18px; font-weight: bold; margin-top: 15px; margin-bottom: 80px;
                   text-shadow:2px 2px 0 #ccc; ">{{ loginUser.username || "无名小可爱" }}</h2>
-                  <el-button link type="warning" @click="toLogout"
-                             style="font-size:medium; margin-bottom: 20px;">
-                    <el-icon>
-                      <SwitchButton/>
-                    </el-icon>&nbsp;退出登录
-                  </el-button>
-                </div>
-              </template>
-            </el-popover>
+                <el-button link type="warning" @click="toLogout"
+                           style="font-size:medium; margin-bottom: 20px;">
+                  <el-icon>
+                    <SwitchButton/>
+                  </el-icon>&nbsp;退出登录
+                </el-button>
+              </div>
+            </template>
+          </el-popover>
 
-          </div>
-          <div v-else class="currentUser">
-            <el-button type="primary" @click="toLogin">登&nbsp;&nbsp;录</el-button>
-            <el-button type="primary" @click="toRegister">注&nbsp;&nbsp;册</el-button>
-          </div>
-<!--        </div>-->
+        </div>
+        <div v-else class="currentUser">
+          <el-button type="primary" @click="toLogin">登&nbsp;&nbsp;录</el-button>
+          <el-button type="primary" @click="toRegister">注&nbsp;&nbsp;册</el-button>
+        </div>
+        <!--        </div>-->
       </el-aside>
     </el-container>
   </div>
@@ -85,7 +98,6 @@ import {useRoute, useRouter} from 'vue-router';
 import {useLoginUserStore} from '@/stores/useLoginUserStore';
 import {userLogout} from '@/api/user';
 import {ElMessage} from 'element-plus';
-import {ArrowDownBold, HomeFilled, SwitchButton, Tools} from "@element-plus/icons-vue";
 import {storeToRefs} from "pinia";
 
 const route = useRoute();
