@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <trees>
+     <tree path="/src/components/AvatorUploadPage.vue" title="上传新头像"/>
+     <tree path="/src/components/LoginUserInfoPage.vue" title="顶部栏右侧用户信息展示"/>
+ </trees>

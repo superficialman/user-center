@@ -4,7 +4,7 @@ import myAxios from "@/request";
  * 调用后端模糊查询接口
  * @param username
  */
-export const userSelect = async (username: any) => {
+export const userSelect = async (username: string) => {
   try {
     return await myAxios.get('/user/select', {
       params: {
@@ -83,7 +83,7 @@ export const userLogout = async () => {
  * 删除用户
  * @param id
  */
-export const userDelete = async (id: any) => {
+export const userDelete = async (id: number) => {
   try {
     return await myAxios.post(`/user/delete/${id}`);
   } catch (error) {
