@@ -143,14 +143,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
         //3.用户信息脱敏（不返回密码等敏感信息）
         User safetyUser = getSafetyUser(user);
-        System.out.println("------------------------------------");
-        System.out.println(safetyUser);
 
         //4.记录用户的登录态
         request.getSession().setAttribute(USER_LOGIN_STATE, safetyUser);
-
-        System.out.println("session="+request.getSession().getAttribute(USER_LOGIN_STATE));
-        System.out.println("------------------------------------");
 
         //返回脱敏后的用户信息
         return safetyUser;
@@ -205,7 +200,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         if (originUser == null) {
             throw new BusinessException(ErrorCode.NULL_ERROR, "用户不存在");
         }
-        System.out.println(originUser.getCreateTime());
         User safetyUser = new User();
         safetyUser.setId(originUser.getId());
         safetyUser.setUsername(originUser.getUsername());

@@ -1,35 +1,27 @@
 <template>
   <div id="UserRegisterPage">
-    <el-card style="max-width: 600px; padding: 0 64px; background-color:azure;">
+    <el-card class="el-card">
       <template #header>
-        <div style="margin-bottom: 5px;">
           <img src="../assets/logo.ico" alt="MyLogo" style="height: 40px;" />
-        </div>
-        <div class="card-header">
-          <span>用&nbsp;户&nbsp;注&nbsp;册</span>
-        </div>
+          <span style="display: block; margin-top: 10px">用&nbsp;户&nbsp;注&nbsp;册</span>
       </template>
 
       <el-form ref="ruleFormRef" style="max-width: 600px" :model="formData" status-icon label-width="auto"
-        :rules="rules" class="demo-ruleForm">
+               :rules="rules" @keyup.enter="submitForm(ruleFormRef)" class="demo-ruleForm">
         <el-form-item label="账&nbsp;号&nbsp;&nbsp;" prop="account">
           <el-input v-model="formData.account" placeholder="请输入账号" />
         </el-form-item>
         <el-form-item label="密&nbsp;码&nbsp;&nbsp;" prop="password">
-          <el-input v-model="formData.password" type="password" autocomplete="off" placeholder="请输入密码" show-password />
+          <el-input v-model="formData.password" type="password" placeholder="请输入密码" show-password />
         </el-form-item>
         <el-form-item label="校&nbsp;验&nbsp;&nbsp;" prop="checkPassword">
-          <el-input v-model="formData.checkPassword" type="password" autocomplete="off" placeholder="请再次输入密码" show-password />
+          <el-input v-model="formData.checkPassword" type="password" placeholder="请再次输入密码" show-password />
         </el-form-item>
       </el-form>
 
       <template #footer>
-        <div style="margin-bottom: 10px;">
-          <el-button type="primary" @click="submitForm(ruleFormRef)">注&nbsp;册</el-button>
-        </div>
-        <div>
-          <RouterLink to="/login" style="font-size: small">已有账号，去登录！</RouterLink>
-        </div>
+          <el-button type="primary" style="margin-bottom: 10px" @click="submitForm(ruleFormRef)">注&nbsp;册</el-button>
+          <RouterLink to="/login" style="display: block; font-size: small">已有账号，去登录！</RouterLink>
       </template>
     </el-card>
   </div>
@@ -39,13 +31,11 @@
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue'
 import type { FormRules, FormInstance } from 'element-plus'
-import { userRegister } from '@/api/user';
+import { userRegister } from '@/api/user.ts';
 import { ElMessage } from 'element-plus';
 import { useRouter } from 'vue-router';
 const router = useRouter();
-
 const ruleFormRef = ref<FormInstance>()
-
 const formData = ref({
   account: '',
   password: '',
@@ -109,5 +99,10 @@ const register = async () => {
   justify-content: center;
   align-items: center;
   margin-top: 80px;
+}
+#UserRegisterPage .el-card{
+  max-width: 600px;
+  padding: 0 64px;
+  background-color:azure;
 }
 </style>

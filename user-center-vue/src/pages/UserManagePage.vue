@@ -155,11 +155,11 @@
 
 <script setup lang="ts">
 
-import {getAllUser, userDelete, userSelect} from '@/api/user';
+import {getAllUser, userDelete, userSelect} from '@/api/user.ts';
 import {ref, onMounted} from "vue"
 import {ElMessage, ElMessageBox} from 'element-plus'
 import router from '@/router';
-import {useLoginUserStore} from '@/stores/useLoginUserStore';
+import {useLoginUserStore} from '@/stores/useLoginUserStore.ts';
 import {Search} from '@element-plus/icons-vue'
 import {storeToRefs} from "pinia";
 
@@ -170,10 +170,10 @@ const searchInput = ref("");
 const loading = ref(true); // 骨架屏 loading状态
 
 const loginUserStore = useLoginUserStore();
+const {loginUser} = storeToRefs(loginUserStore);
 // 获取用户数据
 const fetchData = async () => {
-  const {loginUser} = storeToRefs(loginUserStore) ;
-  if (!loginUser.value || loginUser.value.userRole !== 1) { //未登录或不是管理员
+  if (loginUser.value.id === 0 || loginUser.value.userRole !== 1) { //未登录或不是管理员
     await router.push("/");
     loading.value = false;
     ElMessage.error("对不起，您没有权限查看！");
@@ -208,7 +208,7 @@ const handleSearch = async () => {
 
 
 // 删除数据
-const doDelete = async (id: any) => {
+const doDelete = async (id: number) => {
   try {
     await ElMessageBox.confirm(
       '该用户所有信息将被彻底删除，确定要继续吗?',
