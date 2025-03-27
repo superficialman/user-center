@@ -1,9 +1,6 @@
 package com.bytebreeze.usercenterboot.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -60,6 +57,7 @@ public class Article implements Serializable {
      * 逻辑删除（0-正常，1-已删除）
      */
     @TableField(value = "id_delete")
+    @TableLogic
     private Integer idDelete;
 
     /**
