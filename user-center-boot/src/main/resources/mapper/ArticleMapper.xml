@@ -16,8 +16,4 @@
             <result property="updateTime" column="update_time" />
     </resultMap>
 
-    <sql id="Base_Column_List">
-        id,title,content,author_id,status,view_count,
-        id_delete,create_time,update_time
-    </sql>
 </mapper>

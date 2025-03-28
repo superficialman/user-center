@@ -38,6 +38,7 @@ public class User implements Serializable {
     /**
      * 用户密码
      */
+    @TableField(select = false)
     private String password;
 
     /**
@@ -73,16 +74,18 @@ public class User implements Serializable {
     /**
      * 用户更新时间
      */
+    @TableField(select = false)
     private Date updateTime;
 
     /**
-     * 用户当前状态0正常
+     * 用户当前状态 0正常
      */
     private Integer status;
 
     /**
-     * 是否删除(逻辑删除)0正常1已删除
+     * 是否删除(逻辑删除) 0正常 1已删除
      */
+    @TableField(select = false)
     @TableLogic    //mybatis-plus绑定逻辑删除字段
     private Integer isDelete;
 }

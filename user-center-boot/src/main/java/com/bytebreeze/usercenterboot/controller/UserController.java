@@ -2,11 +2,12 @@ package com.bytebreeze.usercenterboot.controller;
 
 import com.bytebreeze.usercenterboot.common.BaseResponse;
 import com.bytebreeze.usercenterboot.common.ErrorCode;
-import com.bytebreeze.usercenterboot.exception.BusinessException;
 import com.bytebreeze.usercenterboot.entity.User;
+import com.bytebreeze.usercenterboot.exception.BusinessException;
 import com.bytebreeze.usercenterboot.entity.request.UserLoginRequest;
 import com.bytebreeze.usercenterboot.entity.request.UserRegisterRequest;
 import com.bytebreeze.usercenterboot.service.UserService;
+import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class UserController {
     /**
      * 用户服务层接口
      */
-    @Autowired
+    @Resource
     private UserService userService;
 
     /**

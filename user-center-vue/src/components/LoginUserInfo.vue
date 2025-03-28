@@ -4,7 +4,7 @@
     <!--头像和用户名展示-->
     <el-avatar id="el-avatar" shape="circle" :src="loginUser.avatar || defaultAvatar"
                alt="头像"></el-avatar>
-    <span style="margin:0 20px 0 5px">{{ loginUser.username || "无名小可爱" }}</span>
+    <span style="margin:0 5px 0 20px">{{ loginUser.username || "无名小可爱" }}</span>
 
     <!--弹出框-->
     <el-popover :width="300" trigger="click"

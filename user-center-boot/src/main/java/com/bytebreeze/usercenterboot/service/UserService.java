@@ -24,7 +24,8 @@ public interface UserService extends IService<User> {
 
     /**
      * 用户登录
-     * @param account 账号
+     *
+     * @param account  账号
      * @param password 密码
      * @return 脱敏后的用户信息
      */
@@ -43,13 +44,6 @@ public interface UserService extends IService<User> {
      * @return 是否注销成功
      */
     Boolean userLogout(HttpServletRequest request);
-
-    /**
-     * ---用户信息脱敏---
-     * @param originUser 原始用户
-     * @return 脱敏后的用户
-     */
-    User getSafetyUser(User originUser);
 
     /**
      * 用户查询

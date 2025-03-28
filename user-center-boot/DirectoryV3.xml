@@ -12,4 +12,10 @@
            title="全局异常处理"/>
     <tree path="/src/main/java/com/bytebreeze/usercenterboot/exception/BusinessException.java" title="异常类"/>
     <tree path="/src/main/java/com/bytebreeze/usercenterboot/exception" title="自定义异常"/>
+    <tree path="/src/main/java/com/bytebreeze/usercenterboot/entity/response" title="返回值封装"/>
+    <tree path="/src/main/java/com/bytebreeze/usercenterboot/entity/User.java" title="对应User表"/>
+    <tree path="/src/main/java/com/bytebreeze/usercenterboot/entity/Article.java" title="对应Article表"/>
+    <tree path="/src/main/java/com/bytebreeze/usercenterboot/entity/response/UserDTO.java" title="脱敏后的用户信息"/>
+    <tree path="/src/main/java/com/bytebreeze/usercenterboot/entity/response/ArticleDTO.java"
+          title="包括作者信息的文章字段响应"/>
 </trees>
