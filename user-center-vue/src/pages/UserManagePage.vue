@@ -4,8 +4,7 @@
     <!-- 骨架屏：数据加载中显示 -->
     <el-skeleton v-if="loading" :rows="10" animated/>
     <div v-else>
-      <div
-        style="min-width: 100vw; display: flex; justify-content: left; padding-left: 10px; margin: 10px auto; background-color:white;">
+      <div id="search">
         <el-input v-model="searchInput" class="animated-input" size="large"
                   style=" width: 300px; border-radius: 20px" placeholder="请输入关键词"
                   :prefix-icon="Search" clearable
@@ -88,7 +87,7 @@
         </el-table-column>
 
         <!-- 用户角色 -->
-        <el-table-column prop="userRole" width="150">
+        <el-table-column prop="userRole" width="140">
           <template #header>
             <el-icon>
               <Medal/>
@@ -112,7 +111,7 @@
         </el-table-column>
 
         <!-- 账户状态 -->
-        <el-table-column prop="status" width="150">
+        <el-table-column prop="status" width="130">
           <template #header>
             <el-icon>
               <Warning/>
@@ -155,7 +154,7 @@
 
 <script setup lang="ts">
 
-import {getAllUser, userDelete, userSelect} from '@/api/user.ts';
+import {getAllUser, userDelete, userSelect} from '@/request_api/user.ts';
 import {ref, onMounted} from "vue"
 import {ElMessage, ElMessageBox} from 'element-plus'
 import router from '@/router';
@@ -235,6 +234,18 @@ const doDelete = async (id: number) => {
 </script>
 
 <style scoped>
+
+#UserManagePage{
+  margin: auto 20px;
+}
+#UserManagePage #search {
+  min-width: 100vw;
+  display: flex;
+  justify-content: left;
+  margin: 10px auto;
+  background-color: white;
+}
+
 .el-table .el-table__header .el-icon {
   margin-right: 8px;
   /* 调整图标和文本之间的间距 */

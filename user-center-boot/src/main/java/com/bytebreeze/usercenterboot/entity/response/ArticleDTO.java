@@ -25,8 +25,10 @@ public class ArticleDTO implements Serializable {
     private String title;
     private String content;
     private Long authorId;
+
     private String authorName; //作者名
     private String authorAvatar; //作者头像
+
     private Integer status;
     private Integer viewCount;
     private Date createTime;

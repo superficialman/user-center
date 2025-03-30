@@ -11,7 +11,7 @@
             <result property="authorId" column="author_id" />
             <result property="status" column="status" />
             <result property="viewCount" column="view_count" />
-            <result property="idDelete" column="id_delete" />
+            <result property="idDelete" column="is_delete" />
             <result property="createTime" column="create_time" />
             <result property="updateTime" column="update_time" />
     </resultMap>

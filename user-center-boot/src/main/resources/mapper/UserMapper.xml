@@ -20,9 +20,4 @@
             <result property="isDelete" column="is_delete" />
     </resultMap>
 
-    <sql id="Base_Column_List">
-        id,username,account,password,user_role,avatar,
-        gender,phone,email,create_time,update_time,
-        status,is_delete
-    </sql>
 </mapper>

@@ -32,15 +32,14 @@
 import {RouterLink} from 'vue-router';
 import {ref} from 'vue'
 import type {FormRules, FormInstance} from 'element-plus'
-import {userLogin} from '@/api/user.ts';
+import {userLogin} from '@/request_api/user.ts';
 import {ElMessage} from 'element-plus';
-import {useRouter} from 'vue-router';
 import {useLoginUserStore} from '@/stores/useLoginUserStore.ts';
 import {storeToRefs} from "pinia";
+import router from "@/router";
 
 const loginUserStore = useLoginUserStore();
 const {loginUser} = storeToRefs(loginUserStore);
-const router = useRouter();
 const ruleFormRef = ref<FormInstance>()
 const formData = ref({
   account: "",
@@ -75,7 +74,7 @@ const login = async () => {
   if (response.data.code === 200 && response.data.data) {
     await loginUserStore.fetchLoginUser();
     ElMessage.success("欢迎您，" + (response.data.data.username || "小可爱") + "！😁😁😁");
-    router.replace("/")
+    await router.replace("/")
   } else if (response.data.code === 40000) {
     ElMessage.error("账号或密码输入有误！😕😕😕");
   } else {

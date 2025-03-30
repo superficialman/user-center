@@ -31,7 +31,7 @@
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue'
 import type { FormRules, FormInstance } from 'element-plus'
-import { userRegister } from '@/api/user.ts';
+import { userRegister } from '@/request_api/user.ts';
 import { ElMessage } from 'element-plus';
 import { useRouter } from 'vue-router';
 const router = useRouter();

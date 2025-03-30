@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const DEV_BASE_URL = "http://localhost:8080";      //开发环境
+const DEV_BASE_URL = "http://localhost:8080/api";      //开发环境
 const PROD_BASE_URL = "http://182.92.218.14:8080"; //生产环境
 
 const myAxios = axios.create({

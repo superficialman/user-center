@@ -48,7 +48,7 @@ public class Article implements Serializable {
      * 逻辑删除（0-正常，1-已删除）
      */
     @TableLogic
-    private Integer idDelete;
+    private Integer isDelete;
 
     /**
      * 创建时间

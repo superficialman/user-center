@@ -1,6 +1,6 @@
 import {ref} from 'vue'
 import {defineStore} from 'pinia'
-import {getCurrentUser} from '@/api/user';
+import {getCurrentUser} from '@/request_api/user';
 
 /**
  * Vue 全局状态管理库 =>当前登录用户
@@ -48,7 +48,6 @@ export const useLoginUserStore
     //   loginUser.value = {...newLoginUser};
     //   localStorage.setItem("loginUser", JSON.stringify(loginUser.value));
     // }
-
 
     return {loginUser, fetchLoginUser}
 

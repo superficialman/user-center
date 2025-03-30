@@ -2,4 +2,12 @@
  <trees>
      <tree path="/src/components/AvatorUploadPage.vue" title="上传新头像"/>
      <tree path="/src/components/LoginUserInfoPage.vue" title="顶部栏右侧用户信息展示"/>
+     <tree path="/src/request.ts" title="自定义Axios"/>
+     <tree path="/src/request_api" title="Axios请求接口" extension="" presentableText="" tooltipTitle="" icon=""
+           textColor="" backgroundColor=""/>
+     <tree path="/src/stores" title="pinia全局状态管理"/>
+     <tree path="/src/pages" title="页面"/>
+     <tree path="/src/layouts" title="页面布局"/>
+     <tree path="/src/components" title="自定义组件"/>
+     <tree path="/src/constant" title="常量"/>
  </trees>

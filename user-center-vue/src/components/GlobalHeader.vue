@@ -12,16 +12,16 @@
           <el-menu-item index="/">
             <el-icon><HomeFilled/></el-icon>首页
           </el-menu-item>
-          <el-menu-item index="/article-list">
+          <el-menu-item index="/article/list">
             <el-icon><List /></el-icon>文章
           </el-menu-item>
           <!--仅管理员可见：管理中心-->
           <el-sub-menu v-if="loginUser.userRole === 1" index="manage">
             <template #title><el-icon><Tools/></el-icon>管理中心</template>
-            <el-menu-item index="/user-manage">
+            <el-menu-item index="/user/manage">
               <el-icon><UserFilled/></el-icon>用户管理
             </el-menu-item>
-            <el-menu-item index="/article-manage">
+            <el-menu-item index="/article/manage">
               <el-icon><Menu/></el-icon>文章管理
             </el-menu-item>
           </el-sub-menu>

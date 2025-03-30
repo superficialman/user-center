@@ -6,11 +6,8 @@ const pinia = createPinia()
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 pinia.use(piniaPluginPersistedstate)
 
-
 import App from './App.vue'
 import router from './router'
-
-
 
 const app = createApp(App)
 
@@ -21,4 +18,6 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
 
-app.use(pinia).use(ElementPlus).use(router).mount('#app')
+import { VMdEditor, VMdPreview } from './markdown'; // 引入 markdown 编辑器和预览器
+
+app.use(pinia).use(ElementPlus).use(router).use(VMdEditor).use(VMdPreview).mount('#app')
